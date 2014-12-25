@@ -8,7 +8,7 @@ set :application, "nastachku_2014"
 set :rvm_type, :system
 
 set :scm, :git
-set :repository,  "git://github.com/ulmic/nastachku.git"
+set :repository,  "git://github.com/rocket-11/nastachku.git"
 
 set :use_sudo, false
 set :ssh_options, forward_agent: true
