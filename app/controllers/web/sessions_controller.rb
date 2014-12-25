@@ -21,7 +21,8 @@ class Web::SessionsController < Web::ApplicationController
       if params[:from] == registrator_root_url
         redirect_to registrator_root_url
       else
-        redirect_to auth_cs_cart_user_url get_auth_token user
+        # redirect_to auth_cs_cart_user_url get_auth_token user
+        redirect_to :root
       end
     else
       flash[:error] = @type.errors.full_messages

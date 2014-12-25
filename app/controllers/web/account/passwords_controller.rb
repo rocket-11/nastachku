@@ -17,7 +17,8 @@ class Web::Account::PasswordsController < Web::ApplicationController
       if @user.update_attributes(params[:user])
         sign_in @user
         flash_success
-        return redirect_to auth_cs_cart_user_url get_auth_token @user
+        # return redirect_to auth_cs_cart_user_url get_auth_token @user
+        return redirect_to :root
       end
     end
 
