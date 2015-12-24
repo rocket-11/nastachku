@@ -19,7 +19,8 @@ module PaymentSystems
         :MNT_CURRENCY_CODE => @currency_code,
         :MNT_TEST_MODE => @test_mode,
         :MNT_AMOUNT => amount,
-        :MNT_SIGNATURE => signature
+        :MNT_SIGNATURE => signature,
+        'paymentSystem.limitIds' => payment_system_limits
       }
 
       uri = Addressable::URI.heuristic_parse config.payment_url
@@ -67,6 +68,11 @@ module PaymentSystems
 
     def log(message)
       Rails.logger.tagged('PAYMENT SYSTEM', 'PAYANYWAY') { Rails.logger.warn(message) }
+    end
+
+    def payment_system_limits
+      separator = ','
+      config.payment_system_ids.join(separator)
     end
 
   end
