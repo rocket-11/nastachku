@@ -69,6 +69,20 @@ Configus.build Rails.env do
       host 'https://payanyway.ru'
       transaction_view_host 'https://moneta.ru'
       test_mode 0
+      payment_system_ids [
+        1015,   # Монета.Ру
+        1017,   # WebMoney
+        822360, # QIWI Кошелёк
+        # 510801, # Сбербанк
+        587412, # Интернет-банк "Альфа-Клик"
+        661709, # Интернет-банк "Промсвязьбанк"
+        609111, # Интернет-банк "Faktura.ru"
+        786203, # Интернет-банк ОАО "УБРиР"
+        845902, # Интернет-банк "Русский Стандарт"
+        843858, # VISA, Master Card
+        248362, # Салоны связи "Связной"
+        913604  # Салоны связи "Евросеть"
+      ]
     end
 
     timepad do
@@ -160,6 +174,18 @@ Configus.build Rails.env do
       host 'https://demo.moneta.ru'
       transaction_view_host 'https://demo.moneta.ru'
       test_mode 0
+      payment_system_ids [
+        1015,   # Монета.Ру
+        1017,   # WebMoney
+        31086, # QIWI Кошелёк
+        # 32863, # Сбербанк
+        31877, # Интернет-банк "Альфа-Клик"
+        35850, # Интернет-банк "Промсвязьбанк"
+        1025, # Интернет-банк "Faktura.ru"
+        38592, # Интернет-банк "Русский Стандарт"
+        32767, # VISA, Master Card
+        1016, # Салоны связи "Связной"
+      ]
     end
 
     timepad do
