@@ -1,118 +1,119 @@
 = bootstrap_flash
-.cont.title
-  Купить билеты на Стачку 2016
+.pagetitle.mainpage__title
+  .layout-line
+    %h1.cont.title
+      Купить билеты на Стачку 2016
 .cont
   = simple_form_for @form, as: :order, url: buy_now_path, method: :post do |f|
     .line
-      %table.price_calc
-        %tbody
-          %tr
-            %td
-            %td
-              = f.error :tickets, class: 'form-errors'
-          %tr
-            %td
-              Билет на стачку
-            %td
-              = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: @order.tickets.length, error: false
-            %td.price
-              %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
-              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
-          %tr
-            %td
-              Билет на Афтепати
-            %td
-              = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: @order.afterparty_tickets.length
-            %td.price
-              %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
-              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
+      .price_calc
+        .price_calc-row
+          .price_calc-col
+          .price_calc-col
+            = f.error :tickets, class: 'form-errors'
+        .price_calc-row
+          .price_calc-col.price_calc-col--md3.price_calc-name
+            Билет на стачку
+          .price_calc-col.price_calc-col--md3.price_calc-select.price_calc-col--ta-c.price_calc-col--ta-r-sm.price_calc-col--ta-l-xs
+            = f.input :tickets, label: false, input_html: {class: 'price-select', onchange: "changeTicketPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: @order.tickets.length, error: false
+          .price_calc-col.price_calc-col--md3.price_calc-price.price_calc-col--xs1.price
+            %span#ticketPrice{data: {price: Pricelist.ticket_price}}= Pricelist.ticket_price
+            = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
+        .price_calc-row
+          .price_calc-col.price_calc-col--md3.price_calc-name
+            Билет на Афтепати
+          .price_calc-col.price_calc-col--md3.price_calc-select.price_calc-col--ta-c.price_calc-col--ta-r-sm.price_calc-col--ta-l-xs
+            = f.input :afterparty_tickets, label: false, input_html: {class: 'price-select', onchange: "changeAfterpartyPrice(this.value);"}, as: :select, collection: (0..10).map { |i| [i, i] }, selected: @order.afterparty_tickets.length
+          .price_calc-col.price_calc-col--md3.price_calc-price.price_calc-col--xs1.price
+            %span#afterpartyPrice{data: {price: Pricelist.afterparty_ticket_price}}= Pricelist.afterparty_ticket_price
+            = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
     .line
-      %table.price_calc
-        %tbody
-
-          - if @order.has_active_campaign?
-            %tr#campaign_discount
-              %td{colspan: 2}
-                = "Скидка по акции "
-                %span#campaign_name= "“#{@order.campaign.name}”:"
-              %td.price
-                %span#campaign_discount_value= price_format(@order.campaign_discount_value)
-                = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
-          - else
-            %tr#campaign_discount{style: "display: none;"}
-              %td{colspan: 2}
-                = "Скидка по акции "
-                %span#campaign_name
-              %td.price
-                %span#campaign_discount_value
-                = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
-
-          - if @order.coupon
-            %tr#coupon_discount
-              %td{colspan: 2}
-                = "Скидка #{@order.coupon.discount}% по купону “#{@order.coupon.code}”:"
-              %td.price
-                %span#coupon_discount_value= price_format(@order.coupon_discount_value)
-                = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
-          %tr
-            %td
-              ИТОГО:
-            %td
-            %td.price
-              %span#total-price= price_format(@order.cost)
+      .price_calc
+        - if @order.has_active_campaign?
+          .price_calc-row#campaign_discount
+            .price_calc-col.price_calc-col--md3
+              = "Скидка по акции "
+              %span#campaign_name= "“#{@order.campaign.name}”:"
+            .price_calc-col.price_calc-col--md3
+            .price_calc-col.price_calc-col--md3.price
+              %span#campaign_discount_value= price_format(@order.campaign_discount_value)
               = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
-    .pay_information
-      .pay_col1
-        .pay_information_title
-          Данные покупателя
-        -# .wrapper
-        -#   %input#radio-1.radio{:checked => "checked", :name => "radioFace", :type => "radio", :value => "forFizicFace"}/
-        -#   %label{:for => "radio-1"} Физическое лицо
-        -#   %br/
-        -#   %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
-        -#   %label{:for => "radio-2"} Юридическое лицо
-        = f.input :name, label: false, placeholder:  "ФИО / Название организации", input_html: {class: 'input_type-1'}, error_html: {class: 'form-errors'}
-        -# .forYuricFace
-        -#   %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
-        %div
-          = f.input :phone, label: false, placeholder: 'Телефон', input_html: {class: 'input_type-1', type: 'tel'}, error_html: {class: 'form-errors'}
-          = f.input :email, label: false, placeholder: 'E-mail', input_html: {class: 'input_type-1', type: 'email'}, error_html: {class: 'form-errors'}
-          -# %br/
-          -# .check-block
-          -#   %input#checkbox3.css-checkbox{:checked => "checked", :type => "checkbox"}/
-          -#   %label.css-label.lite-red-check{:for => "checkbox3", :name => "checkbox2_lbl"} Активировать автоматически (покупаю себе)
-      .pay_col2
-        .pay_information_title
-          Вид оплаты
-        .wrapper.pay_view
-          -# .forYuricFace
-          -#   %input#radio_pay-1.radio_pay{:name => "radio_pay", :type => "radio"}/
-          -#   %label{:for => "radio_pay-1"} Cчет
-          -#   %br/
-          .forFizicFace
-            =# radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
-            =# label_tag 'payment_system_platidoma', 'Платидома'
-            = radio_button_tag 'payment_system', 'payanyway', true, class: 'radio_pay'
-            = label_tag 'payment_system_payanyway', 'PayAnyWay'
-          .forFizicFace
-            = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
-            = label_tag 'payment_system_platidoma', 'Платидома'
-          .forFizicFace
-            = radio_button_tag 'payment_system', 'yandexkassa', false, class: 'radio_pay'
-            = label_tag 'payment_system_yandexkassa', 'Яндекс Касса'
-        = f.button :submit, "Оплатить", class: 'inputSubmit2', onclick: "try{ga('send', 'event', 'tickets', 'buy');}catch(e){}"
+        - else
+          .price_calc-row#campaign_discount{style: "display: none;"}
+            .price_calc-col.price_calc-col--md3.price_calc-col--xs1
+              = "Скидка по акции "
+              %span#campaign_name
+            .price_calc-col.price_calc-col--md3.price_calc-col--xs1
+            .price_calc-col.price_calc-col--md3.price_calc-col--xs1.price
+              %span#campaign_discount_value
+              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
 
-  = simple_form_for @form, url: coupons_path, method: :post do
-    %table.kupon
-      %tbody
-        %tr
-          %td.first_kup
-            Купон
-            %br
-            %small (введите скидочный купон при его наличии)
-          %td
-            %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => @order.coupon.try(:code)}/
-          %td.but
-            %button.btn_main Применить
-        %tr
-          %td
+        - if @order.coupon
+          .price_calc-row#coupon_discount
+            .price_calc-col.price_calc-col--md3.price_calc-col--xs1
+              = "Скидка #{@order.coupon.discount}% по купону “#{@order.coupon.code}”:"
+            .price_calc-col.price_calc-col--md3.price_calc-col--xs1
+            .price_calc-col.price_calc-col--md3.price_calc-col--xs1.price
+              %span#coupon_discount_value= price_format(@order.coupon_discount_value)
+              = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
+        .price_calc-row
+          .price_calc-col.price_calc-col--md3
+            ИТОГО:
+          .price_calc-col.price_calc-col--md3
+          .price_calc-col.price_calc-col--md3.price
+            %span#total-price= price_format(@order.cost)
+            = image_tag 'web/promo/rubl.png', class: 'rubl_medium'
+
+      = simple_form_for @form, url: coupons_path, method: :post do
+        .kupon
+          .kupon-row
+            .kupon-col.kupon-col--md3.price_calc-col--sm2.price_calc-col--xs1.first_kup
+              Купон
+              %br
+              %small (введите скидочный купон при его наличии)
+            .kupon-col.kupon-col--md3.price_calc-col--sm2.price_calc-col--xs1.price_calc-col--ta-c.price_calc-col--ta-r-sm
+              %input.input_type-1.kup_inp{name: :coupon, :placeholder => "", :type => "text", :value => @order.coupon.try(:code)}/
+            .kupon-col.kupon-col--md3.price_calc-col--sm1.price_calc-col--xs1.but
+              %button.btn_main Применить
+
+      .pay_information
+        .pay_col1
+          .pay_information_title
+            Данные покупателя
+          -# .wrapper
+          -#   %input#radio-1.radio{:checked => "checked", :name => "radioFace", :type => "radio", :value => "forFizicFace"}/
+          -#   %label{:for => "radio-1"} Физическое лицо
+          -#   %br/
+          -#   %input#radio-2.radio{:name => "radioFace", :type => "radio", :value => "forYuricFace"}/
+          -#   %label{:for => "radio-2"} Юридическое лицо
+          = f.input :name, label: false, placeholder:  "ФИО / Название организации", input_html: {class: 'input_type-1'}, error_html: {class: 'form-errors'}
+          -# .forYuricFace
+          -#   %input.input_type-1{:placeholder => "ИНН", :type => "text", :value => ""}/
+          %div
+            = f.input :phone, label: false, placeholder: 'Телефон', input_html: {class: 'input_type-1', type: 'tel'}, error_html: {class: 'form-errors'}
+            = f.input :email, label: false, placeholder: 'E-mail', input_html: {class: 'input_type-1', type: 'email'}, error_html: {class: 'form-errors'}
+            -# %br/
+            -# .check-block
+            -#   %input#checkbox3.css-checkbox{:checked => "checked", :type => "checkbox"}/
+            -#   %label.css-label.lite-red-check{:for => "checkbox3", :name => "checkbox2_lbl"} Активировать автоматически (покупаю себе)
+        .pay_col2
+          .pay_information_title
+            Вид оплаты
+          .wrapper.pay_view
+            -# .forYuricFace
+            -#   %input#radio_pay-1.radio_pay{:name => "radio_pay", :type => "radio"}/
+            -#   %label{:for => "radio_pay-1"} Cчет
+            -#   %br/
+            .forFizicFace
+              =# radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+              =# label_tag 'payment_system_platidoma', 'Платидома'
+              = radio_button_tag 'payment_system', 'payanyway', true, class: 'radio_pay'
+              = label_tag 'payment_system_payanyway', 'PayAnyWay'
+            .forFizicFace
+              = radio_button_tag 'payment_system', 'platidoma', false, class: 'radio_pay'
+              = label_tag 'payment_system_platidoma', 'Платидома'
+            .forFizicFace
+              = radio_button_tag 'payment_system', 'yandexkassa', false, class: 'radio_pay'
+              = label_tag 'payment_system_yandexkassa', 'Яндекс Касса'
+          = f.button :submit, "Оплатить", class: 'btn_main', onclick: "try{ga('send', 'event', 'tickets', 'buy');}catch(e){}"
+

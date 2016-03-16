@@ -35,35 +35,23 @@ $basic-gray: #333333;
 
 a {
   color: blue;
-  text-decoration:none;
 }
 
 a:hover{
   text-decoration:underline;
 }
 
-body{
-  font-size:16px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: $basic-gray;
-}
-
 .cont{
-  width: 960px;
-  margin: 0px auto;
+  position: relative;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .title{
   text-align: center;
   font-size: 26px;
   padding: 22px 0px;
-}
-
-header{
-  height: 100px;
-  background-color: #121212;
-  color: #fff;
 }
 
 header .logo{
@@ -79,7 +67,6 @@ header .location-text{
 }
 
 .line{
-  border-bottom: 1px solid #e1e1e1;
 }
 .line_sliders .title{
   padding: 30px 0px;
@@ -406,10 +393,6 @@ header .location-text{
   padding-top: 10px;
   padding-bottom: 35px;
 }
-footer{
-  height: 265px;
-  background-color: #000;
-}
 footer .title{
   font-size: 26px;
   color: #fff;
@@ -509,7 +492,11 @@ footer .footerForm .inputSubmit{
 
 .price_calc{
   font-size:25px;
-  padding: 0 60px;
+  margin: 0 auto;
+  max-width: 960px;
+  border-bottom: 1px solid #e1e1e1;
+  clear: both;
+  overflow: auto;
 }
 
 .price_calc td{
@@ -529,7 +516,7 @@ footer .footerForm .inputSubmit{
   font-size: 14px;
   background-color: white;
   color: #646464;
-  padding: 0 50px 0 0px;
+  padding: 0 50px 0 10px;
   line-height: 1.75em;
   border: 1px solid #d0d0d0;
   width: 240px;
@@ -547,9 +534,8 @@ footer .footerForm .inputSubmit{
 }
 
 .kupon{
-  margin-top: -460px;
   font-size:25px;
-  padding: 0 60px;
+  margin: 0 auto;
 }
 
 .kupon td{
@@ -564,7 +550,7 @@ footer .footerForm .inputSubmit{
 }
 
 .kupon .first_kup{
-  width:150px;
+  
 }
 
 .kupon small{
@@ -684,22 +670,25 @@ footer .footerForm .inputSubmit{
 }
 
 .pay_information{
-  margin-top: 60px;
+  margin: 60px auto 0 auto;
   display: block;
-  padding: 0px 60px 40px 60px;
+  max-width: 960px;
+  overflow: auto;
 }
 
 .pay_information .pay_col1{
   display: inline-block;
   width:470px;
-  min-height: 370px;
 }
 
 .pay_information .pay_col2{
   display: inline-block;
   vertical-align: top;
+  float: right;
 }
-
+.pay_information .control-group{
+  margin:18px 0 0 0;
+}
 .pay_information .inputSubmit{
   width: 240px;
   height: 48px;
@@ -721,12 +710,12 @@ footer .footerForm .inputSubmit{
 
 .pay_information_title{
   font-size:25px;
-  margin: 60px 0 20px 0;
 }
 
 .pay_view{
   margin-bottom:30px;
   min-height:145px;
+  margin-top: 17px;
 }
 
 .check_text{
@@ -912,13 +901,6 @@ border-bottom: 1px solid #e5e5e5;
 padding-bottom: 50px;
 }
 
-.layout-line {
-position: relative;
-max-width: 960px;
-margin: 0 auto;
-padding: 0 10px;
-}
-
 .mainpage__sections .mainpage__sections__cont {
 width: 100%;
 }
@@ -1011,9 +993,6 @@ height: 179px;
 background-position: -180px 0;
 }
 
-.layout-line a{
-text-decoration:none;
-}
 
 .layout-line a:hover{
 text-decoration:none;
@@ -1045,10 +1024,6 @@ ol.ticket-codes {
     position: relative;
     font-family: 'robotomedium';
     width: 160px;
-    font-size: 0.65em;
-    padding: 0 15px;
-    height: 48px;
-    line-height: 44px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     color: white;
@@ -1072,4 +1047,43 @@ ol.ticket-codes {
 
 .control-group.error .form-errors {
   margin-left: 10px;
+  display: block;
+}
+.price_calc-row {
+  font-size: 0;
+}
+.price_calc-col {
+  display: inline-block;
+  font-size: 25px;
+  padding: 8px 0;
+}
+.price_calc-col--md3 {
+  width: calc(100%/3);
+}
+
+.price_calc-col--ta-c {
+  text-align: center;
+}
+.kupon {
+    max-width: 960px;
+}
+.kupon-row {
+  font-size: 0;
+}
+.kupon-col {
+  display: inline-block;
+  font-size: 25px;
+  padding: 8px 0;
+  vertical-align: middle;
+}
+.kupon-col--md3 {
+  width: calc(100%/3);
+}
+.price_calc .price-select {
+    width: 120px;
+    height: 40px;
+    border-radius: 0;
+}
+.kupon .btn_main {
+  font-size: 14px;
 }
