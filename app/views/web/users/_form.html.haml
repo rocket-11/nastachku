@@ -23,14 +23,9 @@
           = f.input :password, input_html: {class: "input_type-1"}, placeholder: "Придумайте пароль"
         %li.form__element
           = f.input :password_confirmation, required: true, input_html: {class: "input_type-1"}, placeholder: "Повторите пароль"
-        %li.privacy_politics
-          %input#privacy.checkbox_type-1{ name: "privacy_order", type: "checkbox" }
-          %label.privacy_checkbox{ for: "privacy" }
-            = t('.privacy_politics')
-            = link_to t('.privacy_politics_document'), "/pages/privacy", target: "_blank"
     .personal__identity
       .personal__identity__number
-        %h5 Информация
+        %h5 Информация!
         .personal__information
           %p Участие в конференции – платное.
 
@@ -54,4 +49,10 @@
             %li.form__element.form__element__vk
               = f.input :vkontakte, placeholder: "http://vk.com", as: :string, label: false
     .personal__submit
+      .privacy_politics
+        %input#privacy.checkbox_type-1{ name: "privacy_order", type: "checkbox" }
+        %label.privacy_checkbox{ for: "privacy" }
+          = t('.privacy_politics')
+          = link_to t('.privacy_politics_document'), "/pages/privacy", target: "_blank"
       = f.button :submit, id: "submit", class: 'btn_main btn_main-reg', type: "submit"
+

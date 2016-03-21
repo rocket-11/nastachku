@@ -1,7 +1,11 @@
 .privacy_politics {
-  margin-top: 15px;
+  margin-top: 1px;
+  margin-bottom: 23px;
 }
 
 .privacy_checkbox:before {
   margin-top: 5px !important;
+}
+.personal__info .control-label{
+    display: none;
 }

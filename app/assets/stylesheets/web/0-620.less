@@ -883,7 +883,7 @@
     .personal__userpic {
         width: 92%;
         float: left;
-        margin: 200px 4% 0 4%;
+        margin: 14px 4% 0 4%;
         text-align: center;
     }
     .personal__userpic__img {
@@ -897,6 +897,7 @@
         margin-top: 5px;
         a {
             font-size: 0.875em;
+            display: block;
         }
     }
 
@@ -904,7 +905,8 @@
         float: left;
         width: 92%;
         margin: 0 4% 0 4%;
-        .form__group {margin-bottom: 30px}
+        overflow: auto;
+        .form__group {margin-bottom: 12px}
         .offset-block {
           margin-top: 195px;
         }
@@ -933,7 +935,7 @@
 
     .personal__submit {
         width: 92%;
-        margin: 25px 4% 0 4%;
+        margin: 12px 4% 19px 4%;
         text-align: center;
     }
 
@@ -1019,14 +1021,20 @@
     ////////////////////////////////////////// REGISTRATION
     .registration .personal__identity {
         position: static;
+        margin: 0px 4% 0 4%;
     }
     .registration .personal__identity__number {
-        top: 375px;
+        top: auto;
         left: 4%;
+        position: static;
+        width: auto;
+        margin: 24px 4% 0 4%;
     }
-    .registration .personal__info {margin-top: 340px}
-    .registration .personal__identity__social {margin-top: 0}
-
+    .registration .personal__info {}
+    .registration .personal__identity__social {margin-top: 0px;}
+    .checkbox_type-1 + label::before {
+        margin: -6px 10px 0 0px;
+    }
 
     ////////////////////////////////////////// PROGRAMM
     .programm {
