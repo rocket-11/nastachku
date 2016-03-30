@@ -353,6 +353,9 @@
     .programm__schedule th:last-child {text-align: right; padding: 0}
 
     .programm__schedule {
+        table {
+            table-layout: inherit;
+        }
         th {
             padding-top: 0;
             padding-bottom: 0;
@@ -360,14 +363,14 @@
         }
         .page-1 {
             th {
-                &:nth-child(6), &:nth-child(7),&:nth-child(8),&:nth-child(9){
+                &:nth-child(7), &:nth-child(8),&:nth-child(9),&:nth-child(10),&:nth-child(11){
                     display: none;
                 }
             }
             .programm__schedule__lectures td {
                 &:first-child {width: 4%}
-                width: 26%;
-                &:nth-child(6), &:nth-child(7),&:nth-child(8),&:nth-child(9),&:nth-child(10){
+                width: 20%;
+                &:nth-child(7), &:nth-child(8),&:nth-child(9),&:nth-child(10),&:nth-child(11){
                     display: none;
                 }
                 &:last-child {
@@ -377,14 +380,28 @@
         }
         .page-2 {
             th {
-                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5){
+                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6){
                     display: none;
                 }
             }
             .programm__schedule__lectures td {
                 &:first-child {width: 4%}
-                width: 26%;
-                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5){
+                width: 20%;
+                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6){
+                    display: none;
+                }
+            }
+        }
+        .page-3 {
+            th {
+                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6){
+                    display: none;
+                }
+            }
+            .programm__schedule__lectures td {
+                &:first-child {width: 4%}
+                width: 20%;
+                &:nth-child(2), &:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6){
                     display: none;
                 }
             }

@@ -1112,6 +1112,8 @@
             border-left: 1px solid #e5e5e5;
             border-right: 1px solid #e5e5e5;
             border-bottom: 1px solid #e5e5e5;
+            height: 50px;
+            margin-left: 1px;
         }
         .checkbox_type-2 + label {
             font-size: .875em;
@@ -1124,6 +1126,9 @@
     .programm__schedule th:last-child {text-align: right; padding: 0}
 
     .programm__schedule {
+        table {
+            //table-layout: inherit;
+        }
         th {
             padding-top: 0;
             padding-bottom: 0;
@@ -1131,8 +1136,8 @@
             display: none;
             font-size: .9375em;
             width: 90%;
-            &:first-child {display: table-cell; width: 5%}
-            &:last-child {display: table-cell; width: 5%}
+            &:first-child {display: table-cell; width: 55px;}
+            &:last-child {display: table-cell; width: 55px;}
         }
         .programm__schedule__lectures td {
             display: none;
@@ -1141,7 +1146,7 @@
         }
         .page-1 {
             th:nth-child(2){display: table-cell}
-            .programm__schedule__lectures td:nth-child(2) {display: table-cell}
+            .programm__schedule__lectures td:nth-child(2) {display: table-cell} 
         }
         .page-2 {
             th:nth-child(3){display: table-cell}
@@ -1171,10 +1176,20 @@
             th:nth-child(9){display: table-cell}
             .programm__schedule__lectures td:nth-child(9) {display: table-cell}
         }
+        .page-9 {
+            th:nth-child(10){display: table-cell}
+            .programm__schedule__lectures td:nth-child(10) {display: table-cell}
+        }
+        .page-10 {
+            th:nth-child(11){display: table-cell}
+            .programm__schedule__lectures td:nth-child(11) {display: table-cell}
+        }
     }
     .lecture__lecturer, .lecture__company, .lecture__desc {font-size: .875em}
     .programm__print,.programm__timer-time:first-child+.programm__timer-time {display: none}
-
+    #scheme img {
+        max-width: 100%;
+    }
     ////////////////////////////////////////// RECOVERY
     .recovery__pass {
         margin-top: 8%;

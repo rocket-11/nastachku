@@ -1479,7 +1479,7 @@ footer {
         width: 15.7%;
         margin-left: .4%;
         float: left;
-        height: 41px;
+        height: 30px;
         &:nth-child(1) {
             width: 17.5%;
         }
@@ -1497,6 +1497,7 @@ footer {
     table {
         width: 100%;
         border-collapse: collapse;
+        table-layout: fixed;
     }
 
 
@@ -1509,6 +1510,9 @@ footer {
         font-weight: normal;
         text-align: center;
         padding: 15px 5px;
+        &:last-child {
+            width: 10px;
+        }
     }
 
     td {
@@ -1531,7 +1535,9 @@ footer {
         }
     }
 }
-
+.programm__schedule tr.programm__schedule__mainaction.passed_tr {
+    display: table-row;
+}
 .programm__timeline__cell__without__border {
   border-top: 0px !important;
 }
@@ -2183,14 +2189,14 @@ footer {
         display: block;
         height: 30px;
         width: 30px;
-        margin: -5px 10px 0 0;
+        margin: 0px 10px 0 0;
         background-image: @sprite;
         background-repeat: no-repeat;
     }
     &+label.checkbox_type-orange::before{ margin-top: -5px }
     &+.checkbox_type-2-green::before {background-position: 0 -195px}
     &:checked + .checkbox_type-2-green::before {background-position: 0 -226px}
-    &+.checkbox_type-2-orange::before {background-position: -31px -195px; margin: -5px 10px 0 0}
+    &+.checkbox_type-2-orange::before {background-position: -31px -195px; margin: 0px 10px 0 0}
     &:checked + .checkbox_type-2-orange::before {background-position: -31px -226px; margin: -5px 10px 0 0}
     &+.checkbox_type-2-purple::before {background-position: -62px -195px}
     &:checked + .checkbox_type-2-purple::before {background-position: -62px -226px}
@@ -2198,7 +2204,7 @@ footer {
     &:checked + .checkbox_type-2-yellow::before {background-position: -93px -226px}
     &+.checkbox_type-2-red::before {background-position: -124px -195px}
     &:checked + .checkbox_type-2-red::before {background-position: -124px -226px}
-    &+.checkbox_type-2-blue::before {background-position: -155px -195px; margin: -6px 10px 0 0 }
+    &+.checkbox_type-2-blue::before {background-position: -155px -195px; margin: 0px 10px 0 0 }
     &:checked + .checkbox_type-2-blue::before {background-position: -155px -226px; margin: -6px 10px 0 0}
 
     &:disabled + label::before, &:checked:disabled + label::before {
@@ -2647,6 +2653,10 @@ margin-top: 23px;
 .title--border {
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
+}
+.programm__schedule .page-11 {
+    th:nth-child(11){display: table-cell}
+    .programm__schedule__lectures td:nth-child(11) {display: table-cell}
 }
 @import "web/0-620";
 @import "web/0-979";

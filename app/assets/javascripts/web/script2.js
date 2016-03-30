@@ -38,17 +38,18 @@ function showAdapticTable() {
         setPageOne();
       }
       hideAllTd();
+      $(window).on("load resize", function (){
       if (check_width(604)) {
-        setNextAndPrevButtons(page, (page != 1 && page != 8), (page == 1))
+        setNextAndPrevButtons(page, (page != 1 && page != 10), (page == 1))
         showTdOfTable([page]);
       } else if (check_width(964)) {
         if(page > 2) {
           setPageOne();
         }
         if(page == 1) {
-          showTdOfTable([1,2,3,4]);
+          showTdOfTable([1,2,3,4,5]);
         } else if (page == 2) {
-          showTdOfTable([5,6,7,8]);
+          showTdOfTable([6,7,8,9,10]);
         }
       } else {
         setPageOne();
@@ -56,6 +57,7 @@ function showAdapticTable() {
         var hallIdArray = _.range(1, hallCount+1);
         showTdOfTable(hallIdArray);
       }
+      });
     }
 }
 jQuery(document).ready(function ($) {
@@ -124,8 +126,8 @@ function check_width (data_width) {
 function programm_next (next, prev) {
     var page=Number(next.attr('data-page'));
     if (check_width(604)) {
-        if (page<8){
-            if (page==7) next.addClass('disable');
+        if (page<10){
+            if (page==9) next.addClass('disable');
             next.attr('data-page', (page + 1));
             prev.removeClass('disable').attr('data-page', (page + 1));
             next.parents('table').attr('class', 'page-' + (page + 1));
@@ -137,7 +139,7 @@ function programm_next (next, prev) {
             next.addClass('disable').attr('data-page',2);
             prev.removeClass('disable').attr('data-page',2);
             next.parents('table').attr('class','page-2')
-            showTdOfTable([5,6,7,8]);
+            showTdOfTable([6,7,8,9,10]);
         }
     }
 }
@@ -158,7 +160,7 @@ function programm_prev (prev, next) {
             next.removeClass('disable').attr('data-page',1);
             prev.addClass('disable').attr('data-page',1);
             next.parents('table').attr('class','page-1')
-            showTdOfTable([1,2,3,4]);
+            showTdOfTable([1,2,3,4,5]);
         }
     }
 }
@@ -166,9 +168,13 @@ function programm_prev (prev, next) {
 // halls = [1,2,3]
 function showTdOfTable(halls) {
   // hideAllTd();
-  halls.map(function(hall) {
+  if (check_width(964)) {
+    halls.map(function(hall) {
     $("td[data-hall=" + hall + "]").show();
   });
+  } else if (check_width(964)) {
+  
+  }
   hidePassedForHalls(halls);
 }
 
@@ -210,7 +216,11 @@ function hidePassedForHalls(halls) {
 }
 
 function hideAllTd() {
-  $("td[data-hall]").hide();
+  if (check_width(604)) {
+  } else if (check_width(964)) {
+      $("td[data-hall]").hide();
+  }
+  //$("td[data-hall]").hide();
 }
 
 function contacts_next (next, prev) {
