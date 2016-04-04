@@ -81,6 +81,47 @@ $(function() {
   }
 });
 
+function setEqualHeight(columns) 
+{
+  var tallestcolumn = 0;
+  columns.each(
+  function() 
+   {
+      currentHeight = $(this).outerHeight();
+      if(currentHeight > tallestcolumn) 
+      {
+        tallestcolumn = currentHeight;
+      }
+  }
+  );
+  columns.outerHeight(tallestcolumn);
+}
+
+
+$(document).ready(function() {
+  setEqualHeight($(".programms__schedule > div"));
+
+});
+
+// Строка во всю ширину таблицы
+window.onload = function(){
+  var widthtarck = $(".slick-track").width();
+  $(".programm__item-lectures__mainaction").css("width", widthtarck)
+  //alert(widthtarck);
+  var widthitem = $(".programms__item").width();
+  setInterval(function() {
+      var left = $(".slick-track").css("left");
+       //$(".programm__item-lectures__mainaction").css("left", left.replace('-','+'));
+  }, 0.1);
+  $(".slick-next").click(function() {
+    console.log()
+    $(".programm__item-lectures__mainaction").css("left", $(".slick-track").css("left"))
+  });
+  //console.log(widthitem)
+  
+
+};
+
 function showPassedClick(self) {
   $(self).closest('tbody').toggleClass('force_show_passed');
   changeCurrentTimeLine();

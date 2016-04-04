@@ -11,6 +11,535 @@
           %input.checkbox_type-2.schedule__filter{ id: "section-#{i}-#{day.to_s}", type: "checkbox", name: "order_item", value: "Y", data: {section_id: workshop_color(workshop.title), lecture: "lecture__#{workshop_color(workshop.title)}"  } }
             %label{ class: "checkbox_type-2-#{workshop_color(workshop.title)}", for: "section-#{i}-#{day.to_s}" }
               = workshop.title
+
+  .programms__schedule
+    .programms__head
+    .programms__time-list
+      .programms__time-item
+        9
+        %span 00
+      .programms__time-item 
+        10 
+        %span 00
+      .programms__time-item 
+        10
+        %span 30
+      .programms__time-item 
+        10
+        %span 45
+      .programms__time-item 
+        11
+        %span 00
+      .programms__time-item 
+        11
+        %span 15
+      .programms__time-item 
+        11
+        %span 30
+      .programms__time-item 
+        11
+        %span 45
+      .programms__time-item 
+        12
+        %span 00
+      .programms__time-item 
+        12
+        %span 15
+      .programms__time-item 
+        12
+        %span 30
+      .programms__time-item 
+        12
+        %span 45
+      .programms__time-item 
+        13
+        %span 00
+      .programms__time-item 
+        13
+        %span 15
+      .programms__time-item 
+        13
+        %span 30
+      .programms__time-item 
+        13
+        %span 45
+      .programms__time-item 
+        14
+        %span 00
+      .programms__time-item 
+        14
+        %span 15
+      .programms__time-item 
+        15
+        %span 00
+      .programms__time-item 
+        15
+        %span 15
+      .programms__time-item 
+        15
+        %span 30
+      .programms__time-item 
+        15
+        %span 45
+      .programms__time-item 
+        16
+        %span 00
+      .programms__time-item 
+        16
+        %span 15
+      .programms__time-item 
+        16
+        %span 30
+      .programms__time-item 
+        16
+        %span 45
+      .programms__time-item 
+        17
+        %span 00
+      .programms__time-item 
+        17
+        %span 15
+      .programms__time-item 
+        17
+        %span 30
+      .programms__time-item 
+        17
+        %span 45
+      .programms__time-item 
+        18
+        %span 00
+      .programms__time-item 
+        18
+        %span 15
+      .programms__time-item 
+        18
+        %span 30
+      .programms__time-item 
+        18
+        %span 45
+      .programms__time-item 
+        19
+        %span 00
+      .programms__time-item 
+        19
+        %span 30
+    .programms__items
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==0
+              = hall.title
+        .programm__item-content
+          - (minutes_count(start_time)...minutes_count(finish_time)).each_slice(5).to_a.each do |i|
+            - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0, start_time.zone)
+            - if @first_hall.has_begin_event?(i_time)
+              .programm__item-lectures.programm__item-lectures__mainaction{ class: "time-#{i_time.hour}_#{i_time.minute}", id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
+                = link_to_if @first_hall.slot_at_the_time(i_time).event.url.present?, @first_hall.slot_at_the_time(i_time).event.title, @first_hall.slot_at_the_time(i_time).event.url
+
+          .programm__item-lectures.time-10_30.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-11_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологи
+          .programm__item-lectures.time-12_45.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle B
+          - @halls.each_with_index do |hall, index|
+            - if index==1
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-15_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-16_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-17_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle C
+          - @halls.each_with_index do |hall, index|
+            - if index==2
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==3
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==4
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==5
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==6
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==7
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==8
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          - @halls.each_with_index do |hall, index|
+            - if index==9
+              = hall.title
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head
+          .hall-circle A
+          Зал 11
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head 
+          .hall-circle A
+          Зал 12
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__blue
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+      .programms__item
+        .programm__item-head 
+          .hall-circle A
+          Зал 13
+        .programm__item-content
+          .programm__item-lectures.time-11_0.lecture__red
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-12_45.lecture__orange
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+          .programm__item-lectures.time-15_0.lecture__green
+            .programm__lectures-time 10:30 - 10:50
+            .programm__lectures-lecturer Страх Николай
+            .programm__lectures-company Предприниматель и трекер ФРИИ
+            .programm__lectures-desc Акселератор ФРИИ и Майкрософт: от технологического решения к масштабируемому бизнесу.
+    .programms__time-list.programms__time-list--right
+      .programms__time-item
+        9
+        %span 00
+      .programms__time-item 
+        10 
+        %span 00
+      .programms__time-item 
+        10
+        %span 30
+      .programms__time-item 
+        10
+        %span 45
+      .programms__time-item 
+        11
+        %span 00
+      .programms__time-item 
+        11
+        %span 15
+      .programms__time-item 
+        11
+        %span 30
+      .programms__time-item 
+        11
+        %span 45
+      .programms__time-item 
+        12
+        %span 00
+      .programms__time-item 
+        12
+        %span 15
+      .programms__time-item 
+        12
+        %span 30
+      .programms__time-item 
+        12
+        %span 45
+      .programms__time-item 
+        13
+        %span 00
+      .programms__time-item 
+        13
+        %span 15
+      .programms__time-item 
+        13
+        %span 30
+      .programms__time-item 
+        13
+        %span 45
+      .programms__time-item 
+        14
+        %span 00
+      .programms__time-item 
+        14
+        %span 15
+      .programms__time-item 
+        15
+        %span 00
+      .programms__time-item 
+        15
+        %span 15
+      .programms__time-item 
+        15
+        %span 30
+      .programms__time-item 
+        15
+        %span 45
+      .programms__time-item 
+        16
+        %span 00
+      .programms__time-item 
+        16
+        %span 15
+      .programms__time-item 
+        16
+        %span 30
+      .programms__time-item 
+        16
+        %span 45
+      .programms__time-item 
+        17
+        %span 00
+      .programms__time-item 
+        17
+        %span 15
+      .programms__time-item 
+        17
+        %span 30
+      .programms__time-item 
+        17
+        %span 45
+      .programms__time-item 
+        18
+        %span 00
+      .programms__time-item 
+        18
+        %span 15
+      .programms__time-item 
+        18
+        %span 30
+      .programms__time-item 
+        18
+        %span 45
+      .programms__time-item 
+        19
+        %span 00
+      .programms__time-item 
+        19
+        %span 30
+
+
+
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
   .programm__schedule
     %table.page-1{ id: "april-#{day.day}" }
       %thead
@@ -20,7 +549,7 @@
           - @halls.each_with_index do |hall, index|
             %th
               .hall-circle
-                = ('A'..'Z').to_a[index]
+                = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'][index]
               = hall.title
           %th
             %span.programm__next{ data: { page: "1" }}
@@ -42,13 +571,13 @@
           - i_time = DateTime.new(day.year, day.month, day.day, i.first / 60, i.first % 60, 0, start_time.zone)
           - if not slots_in_time?(@slots, i_time)
             - if before_after_party?(i_time, @lectures_slots)
-              %tr.programm__schedule__lectures.s123{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
+              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
                 %td.programm__time{ style: "border-left: 0px; border-top: 0px" }
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }
                 %td
             - else
-              %tr.programm__schedule__lectures.s321{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
+              %tr{ id: "#{i_time.hour}_#{i_time.minute}_tr", data: { time: i_time.to_i }  }
                 = render "timeline", i_time: i_time
                 - (1..@halls.count).each_with_index do |item, index|
                   %td{data: {hall: index} }

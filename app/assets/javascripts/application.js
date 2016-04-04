@@ -16,3 +16,31 @@ $(function() {
   var h=d[g]('body')[0];
   h.appendChild(s);
 }});
+
+$(document).ready(function(){
+  $('.programms__items').slick({
+      dots: false,
+      infinite: false,
+      speed: 1000,
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 979,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: false,
+            dots: false
+          }
+        },
+        {
+          breakpoint: 620,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+});
