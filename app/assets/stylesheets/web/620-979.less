@@ -181,7 +181,6 @@
         p {
             position: relative;
             width: 100%;
-            cursor: pointer;
             overflow: hidden;
 
             &::after {
@@ -200,9 +199,9 @@
     }
 
     .lectures__item-social {
-        width: 100%;
-        margin-top: 2%;
-        text-align: left;
+        //width: 100%;
+        //margin-top: 2%;
+        //text-align: left;
     }
 
 
@@ -418,20 +417,23 @@
     }
     .members__list__item__img {
         float: left;
-        width: 15%;
+        width: 80px;
+        margin: 0 12px 0px 0;
     }
     .members__list__item__name {
-        width: 85%;
+        width: 100%;
         float: left;
         cursor: pointer;
     }
 
     .members__list__item {
-        padding-top: 2.5%;
-        padding-bottom: 3%;
+        padding-top: 12px;
+        padding-bottom: 12px;
         &.open {padding-bottom: 2%}
     }
-
+    .members__list__item .item_overlay {
+        width: 100%;
+    }
     .members__list__section-icon {width: 15%}
 
     .members__list__item__alphabet {
@@ -446,6 +448,7 @@
             position: relative;
             margin-left: 4px;
             cursor: pointer;
+            width: auto;
             &::before {
                 content: '/';
             }
@@ -453,9 +456,9 @@
 
         .members__list__item__city {
             display: none;
-            width: 50%;
-            padding: 20px 0 5px 15%;
-            border-top: 1px solid #e5e5e5;
+            width: 100%;
+            padding: 0px 0 5px 0px;
+            //border-top: 1px solid #e5e5e5;
             margin-top:10px;
             margin-left: 0;
             vertical-align: top;
@@ -463,18 +466,22 @@
 
         .members__list__item__social {
             display: none;
-            width: 35%;
-            border-top: 1px solid #e5e5e5;
+            width: calc(~'100% - 92px');
             margin-left: 0;
             margin-top: 8px;
-            padding-top: 10px;
+            padding-top: 0px;
             vertical-align: top;
+            float: left;
+            text-align: left;
+            //padding-left: 92px;
         }
         &.open {
             .members__list__item__city, .members__list__item__social {display: inline-block}
         }
     }
-
+    .members__registered {
+        margin: 19px 0 0 2%;
+    }
     .members__list__item__bycity {
         .members__list__item__city {
             float: left;
@@ -638,6 +645,30 @@
         width: 53%;
         margin: 22px 14px 0 0;
         vertical-align: top;
+        float: right;
+    }
+    .price_calc-col--sm2 {
+        width: calc(100%/2);
+    }
+    .price_calc-col--sm1 {
+        width: 100%;
+    }
+    .price_calc-col--ta-r-sm {
+        text-align: right;
+    }
+    .kupon .input_type-1.kup_inp {
+        width: 100%;
+    }
+    .pay_information .pay_col1 {
+        width: 45%;
+    }
+    .pay_information .control-group .input_type-1{
+        max-width: 100%;
+    }
+    .pay_information .pay_col2 {
+        width: 50%;
+    }
+    .pay_information .pay_col2 .inputSubmit2 {
         float: right;
     }
 }

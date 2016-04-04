@@ -31,4 +31,12 @@ jQuery(document).ready(function ($) {
     });
     return false;
   });
+
+  $('.lectures__item-desc').on('click', function() {
+      $(this).toggleClass("active");
+  });
+  $('.lectures__item-social').on('click', function() {
+      $(this).toggleClass("active");
+  });
+  
 });

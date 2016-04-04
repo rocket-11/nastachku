@@ -257,7 +257,7 @@
     .pagetitle__select__lecture {
         position: relative;
         width: 90%;
-        margin: 10px auto 0 auto;
+        margin: 24px auto 0 auto;
         top: 0;
         right: auto;
         div.fancy-select {width: 100%}
@@ -714,8 +714,12 @@
     .lectures {
         border-bottom: none;
     }
+    .lectures__items :last-child {
+
+    }
     .lectures__item {
-        margin: 7% 0 3.5% 0;
+        //margin: 7% 0 3.5% 0;
+        border-bottom: none;
     }
 
     .lectures__item-img {
@@ -740,14 +744,14 @@
         display: inline-block;
         float: none;
         vertical-align: middle;
-        margin-top: .8%;
+        //margin-top: .8%;
         margin-left: 4%;
         width: 55%;
         b {display: block}
     }
 
     .lectures__item-about {
-        margin-top: 5%;
+        margin-top: 12px;
         display: inline-block;
         width: 90%;
         vertical-align: top;
@@ -764,15 +768,23 @@
         margin-left: 5%;
         width: 90%;
         float: none;
+        max-height: 4.5em;
+        overflow: hidden;
+        position: relative;
+        &.active {
+            max-height: inherit;
+        }
+        &::after {
+            .three_dots
+        }
         p {
             position: relative;
             width: 100%;
             cursor: pointer;
-            max-height: 4.5em;
             overflow: hidden;
 
             &::after {
-                .three_dots
+                //.three_dots
             }
             &.open {
                 cursor: default;
@@ -785,8 +797,12 @@
     .lectures__item__adding {
         width: 100%;
         margin-top: 15px;
+        min-height: inherit;
+        .share42init {display: none;}
     }
-
+    .lectures__item:last-child {
+        margin-bottom: 19px;
+    }
     .lectures__item__add {
         width: 100%;
         border-top: 1px solid #e8e8e8;
@@ -844,18 +860,17 @@
             cursor: pointer;
             &:after {
                 content: '';
-                position: absolute;
-                top: 22px;
-                left: 50%;
-                margin-left: 90px;
+                position: relative;
+                margin: 0px 0 2px 4px;
                 width: 0;
                 height: 0;
                 border-left: 5px solid transparent;
                 border-right: 5px solid transparent;
                 border-top: 5px solid black;
+                display: inline-block;
             }
             &.open {
-                border-bottom: 1px solid #e8e8e8;
+                //border-bottom: 1px solid #e8e8e8;
                 &~.social__icon {
                     display: inline-block;
                     margin: 15px 0;
@@ -1190,7 +1205,7 @@
     }
     .pagetitle__select__members {
         right: auto;
-        top: 90px;
+        top: 108px;
         left: 50%;
         margin-left: -145px;
         div.fancy-select div.trigger {
@@ -1214,11 +1229,12 @@
 
     .members__list__item__img {
         float: left;
-        width: 30%;
+        width: 80px;
+        margin: 0 12px 0px 0;
     }
 
     .members__list__item__name {
-        width: 70%;
+        width: 100%;
         float: left;
         cursor: pointer;
     }
@@ -1246,18 +1262,21 @@
         }
         .members__list__item__company {
             float: left;
-            width: 70%;
-            margin-left: 30%;
+            width: auto;
+            //margin-left: 30%;
             position: relative;
             cursor: pointer;
+            &::before {
+                content: '/';
+            }
         }
 
         .members__list__item__city {
             display: none;
-            width: 65%;
-            padding: 7px 5% 3px 30%;
+            width: 100%;
+            padding: 0px 0 5px 0px;
             text-align: left;
-            border-top: 1px solid #e5e5e5;
+            //border-top: 1px solid #e5e5e5;
             margin-top:10px;
             margin-left: 0;
             vertical-align: top;
@@ -1265,14 +1284,14 @@
 
         .members__list__item__social {
             display: none;
-            width: 70%;
-            border-top: 1px solid #e5e5e5;
+            width: calc(~'100% - 92px');
             margin-left: 0;
-            text-align: left;
             margin-top: 8px;
-            padding-top: 10px;
-            padding-left: 30%;
+            padding-top: 0px;
             vertical-align: top;
+            float: left;
+            text-align: left;
+            //padding-left: 92px;
         }
         &.open {
             .members__list__item__city, .members__list__item__social {display: inline-block; position: relative; z-index: 1000;}
@@ -1499,5 +1518,57 @@
     p.infoline__left {
         width: 100%;
         text-align: center;
+    }
+    .price_calc-col--xs1 {
+        width: 100%;
+    }
+    .price_calc-col--ta-l-xs {
+        text-align: left;
+    }
+    .price_calc .price-select {
+        
+    }
+    .kupon .input_type-1.kup_inp {
+        width: 100%;
+    }
+    .pay_information .pay_col1 {
+        width: 100%;
+    }
+    .pay_information .control-group .input_type-1{
+        width: 100%;
+    }
+    .pay_information .pay_col2 {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .pay_information .pay_col2 .inputSubmit2 {
+        float: right;
+    }
+    .lectures__item-social.active .share42init {
+        display: block;
+        height: 40px;
+        float: none;
+        background: #f5f5f5;
+        padding-bottom: 17px;
+    }
+    .lectures__title {
+        border-bottom: none;
+    }
+    .lectures__title .pagetitle__title {
+        border-bottom: 1px solid #e1e1e1;
+    }
+    .lectures__item-social.active {
+        
+    }
+    .lectures__item_feedback {
+        margin-bottom: 12px;
+        margin-left: 5%;
+    }
+    .members__registered {
+        margin: 19px 0 0 2%;
+        text-align: center;
+    }
+    .members__list__item .item_overlay {
+        width: 96%;
     }
 }

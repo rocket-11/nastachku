@@ -10,7 +10,8 @@
     - unless signed_in?
       = link_to t('.be_the_first'), new_user_path, class: 'btn btn-shine', onclick: "try{ga('send', 'event', 'users', 'register');}catch(e){}"
 - else
-  =t '.registred_title', activated_count: attended_users + 50, participant: shown_as_participants
+  .members__registered
+    =t '.registred_title', activated_count: attended_users + 50, participant: shown_as_participants
   %ul.members__list
     - @users.each do |user|
       %li.members__list__item.members__list__item__alphabet
@@ -19,14 +20,15 @@
           -#FIXME в контроллере трудности есть при декорировании, начальникэ.
           = user.decorate.lector_section_color
           = image_tag user.decorate.user_pic
-        .members__list__item__name= user
-        .members__list__item__position= user.position
-        .members__list__item__company= user.company
-        .members__list__item__city= user.city
-        .members__list__item__social
-          - unless user.twitter_name.blank?
-            %a.social__icon.social__icon-tw{ title: "Твиттер", href: "https://twitter.com/#{user.twitter_name}", target: "_blank"}
-          - unless user.facebook.blank?
-            %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook, target: "_blank"}
-          - unless user.vkontakte.blank?
-            %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte, target: "_blank"}
+        .members__list__item__desc
+          .members__list__item__name= user
+          .members__list__item__position= user.position
+          .members__list__item__company= user.company
+          .members__list__item__city= user.city
+          .members__list__item__social
+            - unless user.twitter_name.blank?
+              %a.social__icon.social__icon-tw{ title: "Твиттер", href: "https://twitter.com/#{user.twitter_name}", target: "_blank"}
+            - unless user.facebook.blank?
+              %a.social__icon.social__icon-fb{ title: "Фейсбук", href: user.facebook, target: "_blank"}
+            - unless user.vkontakte.blank?
+              %a.social__icon.social__icon-vk{ title: "Вконтакте", href: user.vkontakte, target: "_blank"}

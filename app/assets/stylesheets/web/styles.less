@@ -470,6 +470,11 @@ header {
     div.fancy-select div.trigger {padding-left: 15px}
     div.fancy-select ul.options li {padding-left: 10px; margin-left: 5px}
 }
+.pagetitle__select__members div.fancy-select ul.options li:hover {
+    color: black;
+    font-family: 'robotoregular';
+    letter-spacing: -0.025em;
+}
 
 
 ////////////////////////////////////////// MAINPAGE SECTIONS
@@ -857,18 +862,22 @@ footer {
 
 ////////////////////////////////////////// LECTURES
 .lectures {
-    border-bottom: 1px solid #e5e5e5;
+    //border-bottom: 1px solid #e5e5e5;
 }
 .lectures__items {
     width: 100%;
+    
 }
 
 .lectures__item {
     position: relative;
     width: 100%;
     display: inline-block;
-    margin: 2.5% 0 2% 0;
-
+    margin: 24px 0 0 0;
+    border-bottom: 1px solid #e1e1e1;
+    &:last-child {
+        border-bottom: none;
+    }
     &:hover {
         .lectures__item-social {
           display: block;
@@ -879,7 +888,7 @@ footer {
 
 .lectures__item-img {
     float: left;
-    width: 30%;
+    width: 27%;
     img {
         max-width: 100%;
     }
@@ -895,10 +904,11 @@ footer {
 
 .lectures__item-name {
     width: 67%;
+    width: calc(~'(100% - 27%) - 24px');
     float: right;
     color: #7f7f7f;
     font-size: 0.9375em;
-    margin-top: 1.8%;
+    //margin-top: 1.8%;
     b {
         font-family: @roboto_med;
         font-weight: normal;
@@ -908,6 +918,7 @@ footer {
 
 .lectures__item-about {
     width: 67%;
+    width: calc(~'(100% - 27%) - 24px');
     float: right;
     margin-top: 1.2%;
     h4 {
@@ -919,6 +930,7 @@ footer {
 
 .lectures__item-desc {
     width: 67%;
+    width: calc(~'(100% - 27%) - 24px');
     float: right;
     margin-top: 1%;
     font-size: 0.9375em;
@@ -928,9 +940,11 @@ footer {
 
 .lectures__item__adding {
     float: right;
-    width: 67%;
-    margin-top: 1.5%;
+    width: 100%;
+    //width: calc(~'(100% - 27%) - 24px');
+    margin-top: 24px;
     text-align: left;
+    min-height: 64px;
 }
 
 .lectures__item__add {
@@ -968,15 +982,16 @@ footer {
 }
 
 .lectures__item-social {
-    display: none;
-    float: left;
-    width: 45%;
+    display: block;
+    float: right;
+    //width: 45%;
     text-align: right;
+    min-height: 40px;
     p {
         font-size: 0.875em;
         color: @maincolor;
         display: inline-block;
-        margin: 5px 5px 0 0;
+        margin: 10px 5px 0 0;
     }
 }
 
@@ -1654,7 +1669,7 @@ footer {
 ////////////////////////////////////////// MEMBERS
 .members {
     padding-bottom: 40px;
-    border-bottom: 1px solid #e5e5e5;
+    //border-bottom: 1px solid #e5e5e5;
 }
 .members__list {
     width: 100%;
@@ -1670,13 +1685,16 @@ footer {
     font-size: 0;
     display: inline-block;
     position: relative;
+    &:last-child {
+        border-bottom: none;
+    }
 }
 
 .members__list__item__img {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    width: 9%;
+    width: 112px;
     span {
         width: 40px;
         height: 40px;
@@ -1727,9 +1745,10 @@ footer {
 .members__list__item__social {
     display: inline-block;
     vertical-align: middle;
-    width: 15%;
+    width: 24%;
     margin-left: 1%;
     text-align: right;
+    float: right;
 }
 
 .members__list__item__bycity {
@@ -2238,7 +2257,7 @@ footer {
 div.fancy-select {
     display: inline-block;
     position: relative;
-    z-index: 1;
+    z-index: 101;
 }
 
 div.fancy-select.disabled {
@@ -2555,8 +2574,9 @@ div.fancy-select ul.options li.selected, div.fancy-select ul.options li.hover {
     &.average {background-color: #faed8b;}
 }
 .feedback_average {
-  line-height: 36px;
+  line-height: 40px;
   margin-left: 3px;
+  font-size: 0.875em;
 }
 .lectures__item_feedback {
   float: left;
@@ -2647,6 +2667,13 @@ margin-top: 23px;
 .title--border {
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
+}
+.members__registered {
+    margin: 19px 0 0 0;
+}
+.members__list__item__desc {
+    width: calc(~'100% - 112px');
+    display: inline-block;
 }
 @import "web/0-620";
 @import "web/0-979";
