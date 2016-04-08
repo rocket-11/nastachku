@@ -1489,14 +1489,28 @@ footer {
         }
     }
 }
-
+.programm__schedule-line {
+    margin: 0;
+    position: absolute;
+    top: 71px;
+    right: 0px;
+    height: 100%;
+    width: 1px;
+    background: #eaeaeb;
+}
 .programm__schedule {
     width: 100%;
     position: relative;
-
+    //overflow: auto;
+    border-bottom: 1px solid #eaeaeb;
+    border-right: 1px solid #eaeaeb;
     table {
-        width: 100%;
+        //width: 100%;
         border-collapse: collapse;
+        table-layout: fixed;
+        width: 1000px;
+
+
     }
 
 
@@ -1509,6 +1523,10 @@ footer {
         font-weight: normal;
         text-align: center;
         padding: 15px 5px;
+        width: 140px;
+        &:first-child {
+            width: 65px;
+        }
     }
 
     td {
@@ -1538,6 +1556,9 @@ footer {
 
 .programm__schedule td.programm__time {
   border-top: 1px solid #eaeaeb;
+}
+.programm__schedule th:last-child {
+    width: 0;
 }
 
 .programm__schedule__mainaction {
@@ -2647,6 +2668,149 @@ margin-top: 23px;
 .title--border {
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
+}
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+    overflow: hidden;
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+
+}
+
+.jspPane
+{
+    position: absolute;
+
+}
+
+.jspVerticalBar
+{
+    //display: none;
+    width: 0;
+    height: 0;
+}
+.jspVerticalBar {}
+.jspHorizontalBar
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 16px;
+}
+.jspHorizontalBar>div {
+    position: fixed;
+    bottom: 0;
+}
+.jspCap
+{
+    display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+    float: left;
+}
+
+.jspTrack
+{
+    background: #dde;
+    position: relative;
+    height: 16px;
+}
+
+.jspDrag
+{
+    background: #bbd;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.jspVerticalBar .jspTrack,
+.jspVerticalBar .jspDrag {
+    height: 0;
+}
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+    float: left;
+    height: 16px;
+}
+
+.jspArrow
+{
+    background: #50506d;
+    text-indent: -20000px;
+    display: block;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.jspArrow.jspDisabled
+{
+    cursor: default;
+    background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+    height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+    width: 0px;
+    float: left;
+    height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+    outline: none;
+}
+
+.jspCorner
+{
+    background: #eeeef4;
+    float: left;
+    height: 100%;
+    display: none;
+    width: 0 !important ;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+    margin: 0 -3px 0 0;
+}
+.sticky {
+  position: fixed;
+  z-index: 101;
+}
+.stop {
+  position: relative;
+  z-index: 101;
+}
+
+
+.programm__schedule thead {
+    margin: 0;
+}
+.programm__schedule tbody {
+    border-left: 1px solid #eaeaeb;
+}
+.programm__schedule thead.to_top {
+    
 }
 @import "web/0-620";
 @import "web/0-979";

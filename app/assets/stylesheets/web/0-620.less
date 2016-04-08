@@ -1120,7 +1120,7 @@
         .checkbox_type-2 + label.checkbox_type-2-blue::before { margin: 5px 10px 0 0 }
     }
 
-    .programm__schedule th:first-child {text-align: left; padding: 0}
+    /*.programm__schedule th:first-child {text-align: left; padding: 0}
     .programm__schedule th:last-child {text-align: right; padding: 0}
 
     .programm__schedule {
@@ -1171,7 +1171,7 @@
             th:nth-child(9){display: table-cell}
             .programm__schedule__lectures td:nth-child(9) {display: table-cell}
         }
-    }
+    }*/
     .lecture__lecturer, .lecture__company, .lecture__desc {font-size: .875em}
     .programm__print,.programm__timer-time:first-child+.programm__timer-time {display: none}
 
@@ -1448,7 +1448,9 @@
     .programm__schedule .force_show_passed tr.passed_tr {
         display: table-row;
     }
-
+    .programm__schedule th {
+        width: calc(~'100vw - 85px');
+    }
     .show_passed {
         display: block;
         .show_text { display: block; }

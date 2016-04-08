@@ -21,7 +21,7 @@ function setNextAndPrevButtons(page, enableAll, disablePrev){
       }
 }
 
-
+/*
 function showAdapticTable() {
     changeCurrentTimeLine();
     var table_class = $("dd.selected table").attr('class');
@@ -58,6 +58,7 @@ function showAdapticTable() {
       }
     }
 }
+
 jQuery(document).ready(function ($) {
     var $layout=$('#layout'), $overlay=$('#overlay'), $popups=$('.popup');
     $('body').on('click', '.open_this', function() {
@@ -98,7 +99,7 @@ jQuery(document).ready(function ($) {
     $overlay.on('click', function() {close_popup($layout, $overlay, $popups)});
 
 }); // End ready
-
+*/
 function close_popup ($layout, $overlay, $popups) {
     var top=-(parseInt($layout.css('top')));
     $layout.removeClass('noscroll').css('top','');
@@ -120,7 +121,7 @@ function check_width (data_width) {
     if ($(window).width()<=data_width) return true;
     return false;
 }
-
+/*
 function programm_next (next, prev) {
     var page=Number(next.attr('data-page'));
     if (check_width(604)) {
@@ -212,7 +213,7 @@ function hidePassedForHalls(halls) {
 function hideAllTd() {
   $("td[data-hall]").hide();
 }
-
+*/
 function contacts_next (next, prev) {
     var page=Number(next.attr('data-page')), contacts_info=$('#contacts_info');
     if (page<3) {
@@ -240,3 +241,72 @@ function contacts_prev (prev, next) {
 function showUser(_this) {
   $(_this).parent().toggleClass('open');
 }
+
+$(function() {
+  // $('.scroll-pane').jScrollPane({
+  //   autoReinitialise: true,
+  // });
+  $('#scroll-pane-22').jScrollPane();
+//  $('#scroll-pane-23').jScrollPane();
+});
+$(document).ready(function() {
+  // tableheight = $('.programm__schedule-table').outerHeight(); 
+  // $(this).css('height',tableheight);
+  // $('.programm__schedule-table').parent().parent().css('height',tableheight);
+  // console.log(tableheight); 
+
+});
+/*
+$(function(){
+var a = document.querySelector('.jspHorizontalBar'), b = null, P = 0;
+window.addEventListener('scroll', Ascroll, false);
+document.body.addEventListener('scroll', Ascroll, false);
+function Ascroll() {
+  if (b == null) {
+    var Sa = getComputedStyle(a, ''), s = '';
+    for (var i = 0; i < Sa.length; i++) {
+      if (Sa[i].indexOf('overflow') == 0 ) {
+        s += Sa[i] + ': ' +Sa.getPropertyValue(Sa[i]) + '; '
+      }
+    }
+    b = document.createElement('div');
+    b.style.cssText = s + ' box-sizing: border-box; width: ' + a.offsetWidth + 'px;';
+    a.insertBefore(b, a.firstChild);
+    var l = a.childNodes.length;
+    for (var i = 1; i < l; i++) {
+      b.appendChild(a.childNodes[1]);
+    }
+    //a.style.height = b.getBoundingClientRect().height + 'px';
+    a.style.padding = '0';
+    a.style.border = '0';
+  }
+  var Ra = a.getBoundingClientRect(),
+      R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('.programm__schedule-end').getBoundingClientRect().bottom + 700);  // селектор блока, при достижении верхнего края которого нужно открепить прилипающий элемент;  Math.round() только для IE; если ноль заменить на число, то блок будет прилипать до того, как нижний край элемента дойдёт до футера
+  console.log(R)
+  if ((Ra.top - P) <= 0) {
+    if ((Ra.top - P) <= R) {
+      console.log("1")
+      b.className = 'stop';
+      b.style.top = - R +'px';
+      $(this).addClass("stop")
+    } else {
+      console.log("2")
+      b.className = 'sticky';
+      b.style.top = P + 'px';
+      $(this).addClass("sticky")
+    }
+  } else {
+    console.log("3")
+    b.className = '';
+    b.style.top = '';
+  }
+
+  window.addEventListener('resize', function() {
+    a.children[0].style.width = getComputedStyle(a, '').width
+  }, false);
+}
+});
+*/
+$(document).ready(function() {
+  $(".jspContainer").append("<div class='programm__schedule-line'></div>");
+});

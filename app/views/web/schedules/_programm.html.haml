@@ -36,6 +36,15 @@
             $('.tab_button').on('click', function() {
                 $(this).siblings().removeClass('selected').end().next('dd').andSelf().addClass('selected');
                 setHeightOfDivInTd();
+                //$('.scroll-pane').jScrollPane().data('jsp').reinitialise();
+                //if ("#scroll-pane-23 .jspContainer").length {
+                //  $('#scroll-pane-23').jScrollPane();
+                //}
+                if ($("div").is("#scroll-pane-23.jspScrollable")){
+                }
+                else { 
+                  $('#scroll-pane-23').jScrollPane();
+                }
             });
 
             var next=$('.programm__next'), prev=$('.programm__prev');
