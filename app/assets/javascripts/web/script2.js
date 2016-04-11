@@ -246,7 +246,10 @@ $(function() {
   // $('.scroll-pane').jScrollPane({
   //   autoReinitialise: true,
   // });
-  $('#scroll-pane-22').jScrollPane();
+  //$('#scroll-pane-22').jScrollPane();
+  $('#scroll-pane-22').jScrollPane({
+      mouseWheelSpeed: 50
+  });
 //  $('#scroll-pane-23').jScrollPane();
 });
 $(document).ready(function() {
@@ -309,4 +312,6 @@ function Ascroll() {
 */
 $(document).ready(function() {
   $(".jspContainer").append("<div class='programm__schedule-line'></div>");
+  $("#scroll-pane-22.programm__schedule").append("<div class='programm__schedule-table-clone-owerflow'></div>");
+  $("#scroll-pane-22 .programm__schedule-table").clone().addClass("programm__schedule-table--clone").appendTo("#scroll-pane-22 .programm__schedule-table-clone-owerflow");
 });

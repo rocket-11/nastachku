@@ -1542,7 +1542,7 @@ footer {
         font-family: @roboto_reg;
         font-size: .875em;
         text-align: center;
-        width: 4%;
+        width: 65px;
         span {
             vertical-align: super;
             font-size: .6em;
@@ -2706,6 +2706,7 @@ margin-top: 23px;
     left: 0;
     width: 100%;
     height: 30px;
+    z-index: 1;
 }
 .jspHorizontalBar>div {
     position: fixed;
@@ -2812,6 +2813,27 @@ margin-top: 23px;
 }
 .programm__schedule thead.to_top {
     
+}
+.programm__schedule-table-clone-owerflow {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 76px;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+.programm__schedule-table.programm__schedule-table--clone{
+    left: 0;
+    position: absolute;
+    top:99999px;
+}
+#scroll-pane-23.programm__schedule #april-23.programm__schedule-table--clone {
+    top: 0;
+}
+#scroll-pane-22.programm__schedule #april-22.programm__schedule-table--clone {
+    top: 0;
 }
 @import "web/0-620";
 @import "web/0-979";
