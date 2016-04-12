@@ -43,10 +43,13 @@
                 if ($("div").is("#scroll-pane-23.jspScrollable")){
                 }
                 else { 
-                  $('#scroll-pane-23').jScrollPane();
+                  $('#scroll-pane-23').jScrollPane({
+                    autoReinitialise: true,
+                  });
                   $("#scroll-pane-23 .jspContainer").append("<div class='programm__schedule-line'></div>");
                   $("#scroll-pane-23.programm__schedule").append("<div class='programm__schedule-table-clone-owerflow'></div>");
                   $("#scroll-pane-23 .programm__schedule-table").clone().addClass("programm__schedule-table--clone").appendTo("#scroll-pane-23 .programm__schedule-table-clone-owerflow");
+                  
                 }
 
             });

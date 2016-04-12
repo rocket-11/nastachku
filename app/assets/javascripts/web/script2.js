@@ -68,7 +68,7 @@ jQuery(document).ready(function ($) {
         $(this).toggleClass('active');
     });
     $(window).resize(function(){
-      showAdapticTable();
+      //showAdapticTable();
     });
     /*
     showAdapticTable();
@@ -250,14 +250,15 @@ $(function() {
   // });
   //$('#scroll-pane-22').jScrollPane();
   $('#scroll-pane-22').jScrollPane({
-      mouseWheelSpeed: 50
+      mouseWheelSpeed: 50,
+      autoReinitialise: true,
   });
 //  $('#scroll-pane-23').jScrollPane();
 });
 $(document).ready(function() {
   tableheight = $('#scroll-pane-22 .programm__schedule-table thead th:first').innerHeight();
   $('#scroll-pane-22 .jspArrow.jspArrowRight, #scroll-pane-22 .jspArrow.jspArrowLeft').css('height',tableheight);
-  console.log(tableheight); 
+  //console.log(tableheight); 
 
 });
 /*
