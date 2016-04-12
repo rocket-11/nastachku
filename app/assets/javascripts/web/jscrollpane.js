@@ -231,7 +231,7 @@
 
                     initFocusHandler();
                     initMousewheel();
-                    initTouch();
+                    //initTouch();
 
                     if (settings.enableKeyboardNavigation) {
                         initKeyboardNav();
@@ -1188,7 +1188,7 @@
                     event.preventDefault();
                 });
             }
-
+            /*
             // Init touch on iPad, iPhone, iPod, Android
             function initTouch()
             {
@@ -1234,9 +1234,9 @@
                     function(e)
                     {
                         moving = false;
-                        /*if(moved) {
-                            return false;
-                        }*/
+                        //if(moved) {
+                        //    return false;
+                        //}
                     }
                 ).bind(
                     'click.jsp-touchclick',
@@ -1248,7 +1248,7 @@
                         }
                     }
                 );
-            }
+            }*/
 
             function destroy(){
                 var currentY = contentPositionY(),
@@ -1477,7 +1477,7 @@
     };
 
     $.fn.jScrollPane.defaults = {
-        showArrows                  : false,
+        showArrows                  : true,
         maintainPosition            : true,
         stickToBottom               : false,
         stickToRight                : false,
@@ -1507,7 +1507,7 @@
         hideFocus                   : false,
         keyboardSpeed               : 0,
         initialDelay                : 300,        // Delay before starting repeating
-        speed                       : 30,       // Default speed when others falsey
+        speed                       : 100,       // Default speed when others falsey
         scrollPagePercent           : .8        // Percent of visible area scrolled when pageUp/Down or track area pressed
     };
 

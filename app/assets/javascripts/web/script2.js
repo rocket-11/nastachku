@@ -58,7 +58,7 @@ function showAdapticTable() {
       }
     }
 }
-
+*/
 jQuery(document).ready(function ($) {
     var $layout=$('#layout'), $overlay=$('#overlay'), $popups=$('.popup');
     $('body').on('click', '.open_this', function() {
@@ -70,6 +70,7 @@ jQuery(document).ready(function ($) {
     $(window).resize(function(){
       showAdapticTable();
     });
+    /*
     showAdapticTable();
     $(window).on("load resize", function (){
     if (check_width(604)) {
@@ -88,6 +89,7 @@ jQuery(document).ready(function ($) {
         var logos_carousel=$(".touchcarousel").touchCarousel(options).data("touchCarousel");
     }
     });
+    */
     $('.touchcarousel-container').each(function(){
       if ($(this).find('li').length==1) $(this).parents(".touchcarousel").addClass('touchcarousel--min');
     });
@@ -99,7 +101,7 @@ jQuery(document).ready(function ($) {
     $overlay.on('click', function() {close_popup($layout, $overlay, $popups)});
 
 }); // End ready
-*/
+
 function close_popup ($layout, $overlay, $popups) {
     var top=-(parseInt($layout.css('top')));
     $layout.removeClass('noscroll').css('top','');
@@ -253,10 +255,9 @@ $(function() {
 //  $('#scroll-pane-23').jScrollPane();
 });
 $(document).ready(function() {
-  // tableheight = $('.programm__schedule-table').outerHeight(); 
-  // $(this).css('height',tableheight);
-  // $('.programm__schedule-table').parent().parent().css('height',tableheight);
-  // console.log(tableheight); 
+  tableheight = $('#scroll-pane-22 .programm__schedule-table thead th:first').innerHeight();
+  $('#scroll-pane-22 .jspArrow.jspArrowRight, #scroll-pane-22 .jspArrow.jspArrowLeft').css('height',tableheight);
+  console.log(tableheight); 
 
 });
 /*
