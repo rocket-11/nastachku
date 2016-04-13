@@ -1,0 +1,34 @@
+-# код страницы, взятый из wysiwyg
+.content
+  .pagetitle.mainpage__title
+    .layout-line
+      %h1.pagetitle__title Закрытая IT-вечеринка (AfterParty)
+  .layout-line.layout-wrapper
+    %p Хочется отдохнуть после насыщенного дня, поделиться впечатлениями от докладов, пообщаться со спикерами и лучшими людьми ITсферы в неформальной обстановке? Добро пожаловать на афтепати «Стачки!». Мы ждем Вас 22 апреля 2016 года в 19.00 в одном из лучших кафе города Ульяновска.
+    %p Цена билета на Афтепати:
+    %p
+      При покупке до 31 декабря 2015 года цена 1 билета - 2000 рублей
+      %br/
+      с 01 января по 31 марта 2016 года - 2500 рублей
+      %br/
+      с 01 по 22 апреля 2016 года - 3000 рублей
+    %p В стоимость билета включается: вход, бар, фуршетный стол, игровые зоны, развлекательная программа, сюрпризы от организаторов и бесконечное количество положительных эмоций.
+    %p Успейте попасть на закрытую вечеринку, количество билетов ограничено!
+    .pagetitle.pagetitle__title.title--border{:style => "text-align: center;"} Посмотрите как это было:
+    .cont.movies
+      .item
+        .flash
+          %iframe{:allowfullscreen => "", :frameborder => "0", :height => "254", :src => "https://www.youtube.com/embed/6AIuIqhw8f0", :width => "450"}
+    .line.price-line
+      .cont
+        .block.block1
+          .ticket_box
+            %img{:alt => "", :src => "/system/uploads/ckeditor/pictures/43/content_bilet.png"}/
+            .text Билет на Афтепати Стачки — 2016
+          .hot_price_box
+            %div
+              %span.big_price
+                3000 
+                %img.rubl_big{:src => "/system/uploads/ckeditor/pictures/47/content_rubl.png"}/
+              до 22.04.2016
+            %a.buy_now_btn{:href => "/buy_now"} Купить прямо сейчас
